@@ -12,11 +12,9 @@ public class ProdutoTeste {
 
         ProdutoController controller = new ProdutoController();
 
-        // Variável para contar testes
         int testesPassados = 0;
         int testesFalhados = 0;
 
-        // ====== TESTE 1: LISTAR PRODUTOS INICIAIS ======
         System.out.println("📋 TESTE 1: Listar produtos iniciais");
         System.out.println("-------------------------------------");
         List<Produto> produtos = controller.listar();
@@ -36,7 +34,6 @@ public class ProdutoTeste {
         }
         System.out.println();
 
-        // ====== TESTE 2: ADICIONAR NOVO PRODUTO ======
         System.out.println("➕ TESTE 2: Adicionar novo produto");
         System.out.println("-------------------------------------");
         Produto novoProduto = new Produto("Sorvete", "Casquinha 2 bolas", 10.00, 25);
@@ -62,7 +59,6 @@ public class ProdutoTeste {
             testesFalhados++;
         }
 
-        // ====== TESTE 3: BUSCAR PRODUTO POR ID ======
         System.out.println("🔍 TESTE 3: Buscar produto por ID");
         System.out.println("-------------------------------------");
         Produto produtoBuscado = controller.buscarPorId(1);
@@ -76,7 +72,6 @@ public class ProdutoTeste {
             testesFalhados++;
         }
 
-        // ====== TESTE 4: ATUALIZAR PRODUTO ======
         System.out.println("✏️ TESTE 4: Atualizar produto existente");
         System.out.println("-------------------------------------");
         Produto produtoAtualizado = new Produto("X-Burger Premium", "Hambúrguer gourmet com queijo especial", 30.00, 50);
@@ -108,11 +103,10 @@ public class ProdutoTeste {
             testesFalhados++;
         }
 
-        // ====== TESTE 5: REMOVER PRODUTO ======
         System.out.println("🗑️ TESTE 5: Remover produto");
         System.out.println("-------------------------------------");
         int tamanhoAntes = controller.listar().size();
-        boolean removeu = controller.remover(9); // Remove o sorvete que adicionamos
+        boolean removeu = controller.remover(9);
         int tamanhoDepois = controller.listar().size();
 
         System.out.println("Produtos antes da remoção: " + tamanhoAntes);
@@ -126,7 +120,6 @@ public class ProdutoTeste {
             testesFalhados++;
         }
 
-        // ====== TESTE 6: TENTAR REMOVER PRODUTO INEXISTENTE ======
         System.out.println("⚠️ TESTE 6: Tentar remover produto inexistente");
         System.out.println("-------------------------------------");
         boolean removeuInexistente = controller.remover(999);
@@ -139,7 +132,6 @@ public class ProdutoTeste {
             testesFalhados++;
         }
 
-        // ====== TESTE 7: VERIFICAR INTEGRIDADE FINAL ======
         System.out.println("🔒 TESTE 7: Verificar integridade final da lista");
         System.out.println("-------------------------------------");
         List<Produto> produtosFinais = controller.listar();
@@ -161,7 +153,6 @@ public class ProdutoTeste {
             testesFalhados++;
         }
 
-        // ====== RESUMO DOS TESTES ======
         System.out.println("========================================");
         System.out.println("          RESUMO DOS TESTES");
         System.out.println("========================================");
@@ -179,7 +170,6 @@ public class ProdutoTeste {
             System.out.println("\n⚠️ ALGUNS TESTES FALHARAM ⚠️\n");
         }
 
-        // ====== LISTAGEM FINAL COMPLETA ======
         System.out.println("\n📋 LISTAGEM FINAL DE PRODUTOS:");
         System.out.println("========================================");
         for (Produto p : produtosFinais) {
